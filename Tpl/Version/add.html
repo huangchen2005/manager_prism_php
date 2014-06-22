@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>棱镜管理系统</title>
+<link href="../Tpl/Public/css/css.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="../Tpl/Public/js/jquery-1.6.3.min.js"></script>
+<script language="javascript" src="../Tpl/Public/js/tb.js"></script>
+</head>
+
+<body>
+<div id="container">
+	<include file="Tpl/Public/html/header.html" />
+	<include file="Tpl/Public/html/menu.html" />
+	<div id="mainContent">
+        	<div id="sidebar">
+		<include file="Tpl/Public/html/version_sidebar.html" />
+                </div>
+                <div id="content">
+                <h2 >添加版本信息</h2>
+                <form method="post" action="__URL__/insert">
+                <table class="config" width="100%" border="0" cellspacing="0" id="main" style="display:table;">
+                <tr>
+                	<td width="130">新版本svn地址</td>
+                	<td><input style="width:450px" type="text" name="svn_addr" value="https://192.168.1.4/svn/NetworkBench/prism3/">(如/branches/v1.11,/tags/v1.11,结尾没有/)</td>
+                </tr>
+                <tr>
+                	<td width="130">from svn地址</td>
+                	<td><input style="width:450px" type="text" name="from_svn_addr" value="https://192.168.1.4/svn/NetworkBench/prism3/">(如/trunk,/branches/v1.11,/tags/v1.11,结尾没有/)</td>
+                </tr>
+
+                <tr>
+                	<td width="130"></td>
+                	<td><input type="submit" value="添加"></td>
+                </tr>
+                </table>
+                </form>
+                </div>
+	</div>
+	<include file="Tpl/Public/html/footer.html" />
+</div>
+</body>
+</html>

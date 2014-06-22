@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>棱镜管理系统</title>
+<link href="../Tpl/Public/css/css.css" rel="stylesheet" type="text/css" />
+<link href="../Tpl/Public/css/calendar-nbs.css" rel="stylesheet" type="text/css" />
+
+<script language="javascript" src="../Tpl/Public/js/jquery-1.6.3.min.js"></script>
+<script language="javascript" src="../Tpl/Public/js/calendar_stripped.js"></script>
+<script language="javascript" src="../Tpl/Public/js/calendar-setup_stripped.js"></script>
+<script language="javascript" src="../Tpl/Public/js/nb-calendar-editor.js"></script>
+<script language="javascript" src="../Tpl/Public/js/lang/calendar-zh_CN.js"></script>
+<script language="javascript" src="../Tpl/Public/js/lang/nb-calendar-zh_CN.js"></script>
+<script language="javascript" src="../Tpl/Public/js/tb.js"></script>
+
+
+</head>
+
+<body>
+<div id="container">
+	<include file="Tpl/Public/html/header.html" />
+	<include file="Tpl/Public/html/menu.html" />
+	<div id="mainContent">
+        	<div id="sidebar">
+		<include file="Tpl/Public/html/error_sidebar.html" />
+                </div>
+                <div id="content">
+                <h2 >添加问题信息</h2>
+                <form method="post" action="../Machine/add_error1">
+                <table class="config" width="100%" border="0" cellspacing="0" id="main" style="display:table;">
+                <tr>
+                	<td></td>
+                	<td><input type="hidden" name="machine_id" value="{$machine_id}"></td>
+                </tr>
+                <tr>
+                	<td width="130">机器名称</td>
+                	<td>{$machine_name}</td>
+                </tr>
+                <tr>
+                	<td width="130">问题时间</td>
+			<td><input type="text" id="error_time" name="error_time"><span style="margin:3px 0 0 -5px;"><img src="../Tpl/Public/images/icon_calendar.gif" id="errDateImg"/></td>
+                </tr>
+                <tr>
+                	<td width="130">问题程序</td>
+                	<td><input type="text" name="error_pro"></td>
+                </tr>
+                <tr>
+			<td width="130">svn地址</td>
+			<td><input type="text" name="svn_info"></td>
+
+                </tr>
+                <tr>
+                	<td width="130">备注</td>
+                	<td><textarea name="ps" cols="20" rows="5"/></textarea></td>
+                </tr>
+                <tr>
+                	<td ></td>
+                	<td><input type="submit" value="添加"></td>
+                </tr>
+                </table>
+                </form>
+                </div>
+	</div>
+	<include file="Tpl/Public/html/footer.html" />
+</div>
+</body>
+
+<script>
+<!--
+          NBCalendar.setup({
+              inputField	:	"error_time",		// id of the input field
+               button        :   document.getElementById("errDateImg"),
+              ifFormat		:	"%Y-%m-%d",		// format of the input field
+			  showsTime		:false,
+              electric		:	false,			// update field only when closed
+              align			:   "Br"
+          });
+ //-->
+      </script>
+</html>

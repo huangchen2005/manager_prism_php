@@ -1,0 +1,10 @@
+<ul>
+        <volist name="machine" id="vo">
+        <INPUT type="hidden" name="machine_id" value="{$vo.id}"></td>
+        </volist>
+        <volist name="build" id="vo">
+        <INPUT type="hidden" name="machine_id" value="{$vo.id}"></td>
+        </volist>
+	<li><a href="../Machine/build_detail?id={$vo.id}">查看编译信息</a></li>
+	<li><a href="../Machine/build?id={$vo.id}">编译</a></li>
+</ul>

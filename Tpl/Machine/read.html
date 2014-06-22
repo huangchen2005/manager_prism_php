@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>棱镜管理系统</title>
+<link href="../Tpl/Public/css/css.css" rel="stylesheet" type="text/css" />
+<link href="../Tpl/Public/css/calendar-nbs.css" rel="stylesheet" type="text/css" />
+
+<script language="javascript" src="../Tpl/Public/js/jquery-1.6.3.min.js"></script>
+<script language="javascript" src="../Tpl/Public/js/calendar_stripped.js"></script>
+<script language="javascript" src="../Tpl/Public/js/calendar-setup_stripped.js"></script>
+<script language="javascript" src="../Tpl/Public/js/nb-calendar-editor.js"></script>
+<script language="javascript" src="../Tpl/Public/js/lang/calendar-zh_CN.js"></script>
+<script language="javascript" src="../Tpl/Public/js/lang/nb-calendar-zh_CN.js"></script>
+<script language="javascript" src="../Tpl/Public/js/tb.js"></script>
+</head>
+
+<body>
+<div id="container">
+	<include file="Tpl/Public/html/header.html" />
+	<include file="Tpl/Public/html/menu.html" />
+	<div id="mainContent">
+        	<div id="sidebar">
+		<include file="Tpl/Public/html/machine_sidebar.html" />
+                </div>
+                <div id="content">
+                <h2 >修改机器信息</h2>
+                <form method="post" action="../Machine/update">
+                <table class="config" width="100%" border="0" cellspacing="0" id="main" style="display:table;">
+                <tr>
+	                <td width="130"></td>
+                        <volist name="machine" id="vo">
+                        <td> <INPUT type="hidden" name="id" value="{$vo.id}"></td>
+                        </volist>
+                </tr>
+                <tr>
+                	<td width="130">机器名称</td>
+                	<td><input type="text" name="machine_name" value="{$vo.machine_name}"></td>
+                </tr>
+                <tr>
+                	<td width="130">机器型号</td>
+                	<td><input type="text" name="machine_type" value="{$vo.machine_type}"></td>
+                </tr>
+                <tr>
+                	<td width="130">eth0的ip</td>
+                	<td><input type="text" name="eth0_ip" value="{$vo.eth0_ip}"></td>
+                </tr>
+                <tr>
+			<td width="130">访问ip</td>
+			<td><input type="text" name="visit_ip" value="{$vo.visit_ip}"></td>
+
+                </tr>
+                <tr>
+                	<td width="130">机器序列号(S/N)</td>
+                	<td><input type="text" name="sn" value="{$vo.sn}"></td>
+                </tr>
+		<tr>
+			<td width="130">所属客户</td>
+			<td>
+				<select name="custom_id" id="custom_id" style="width:155px">
+					<volist name="custom" id="voo">
+			        	<option value ="{$voo.id}">{$voo.custom_name}</option>
+					</volist>
+			      	</select>
+			</td>
+                </tr>
+		<tr>
+			<td width="130">归属性质</td>
+			<td>
+				<select name="belong_to" id="belong_to" style="width:155px">
+			                <option value ="基调测试机器">基调测试机器</option>
+			                <option value ="基调已售机器">基调已售机器</option>
+			        	<option value ="客户自有机器">客户自有机器</option>
+			      	</select>
+			</td>
+                </tr>
+		<tr>
+			<td width="130">配置文件路径</td>
+			<td><input type="text" name="conf_path" value="{$vo.conf_path}"></td>
+                </tr>
+		<tr>
+			<td width="130">license开始时间</td>
+			<td><input type="text" id="lis_bg_time" name="lis_bg_time" value="{$vo.lis_bg_time}"><span style="margin:3px 0 0 -5px;"><img src="../Tpl/Public/images/icon_calendar.gif" id="startDateImg"/></td>
+                </tr>
+		<tr>
+			<td width="130">license结束时间</td>
+			<td><input type="text" id="lis_ed_time" name="lis_ed_time" value="{$vo.lis_ed_time}"><span style="margin:3px 0 0 -5px;"><img src="../Tpl/Public/images/icon_calendar.gif" id="endDateImg"/></td>
+
+                </tr>
+
+                <tr>
+                	<td width="130"></td>
+                	<td><input type="submit" value="修改"></td>
+                </tr>
+                </table>
+                </form>
+                </div>
+	</div>
+	<include file="Tpl/Public/html/footer.html" />
+</div>
+</body>
+<script type="text/javascript">
+var jQ = jQuery.noConflict();
+jQ("#custom_id").attr("value","{$vo.custom_id}");
+jQ("#belong_to").attr("value","{$vo.belong_to}");
+</script>
+<script>
+<!--
+          NBCalendar.setup({
+              inputField	:	"lis_bg_time",		// id of the input field
+               button        :   document.getElementById("startDateImg"),
+              ifFormat		:	"%Y-%m-%d",		// format of the input field
+			  showsTime		:false,
+              electric		:	false,			// update field only when closed
+              align			:   "Br"
+          });
+ //-->
+</script>
+<script>
+<!--
+          NBCalendar.setup({
+              inputField	:	"lis_ed_time",		// id of the input field
+               button        :   document.getElementById("endDateImg"),
+              ifFormat		:	"%Y-%m-%d",		// format of the input field
+			  showsTime		:false,
+              electric		:	false,			// update field only when closed
+              align			:   "Br"
+          });
+ //-->
+</script>
+</html>

@@ -1,0 +1,11 @@
+<ul>
+        <volist name="lic" id="vo">
+        <INPUT type="hidden" name="machine_id" value="{$vo.id}"></td>
+        </volist>
+     	<volist name="machine" id="vo">
+        <td> <INPUT type="hidden" name="id" value="{$vo.id}"></td>
+        </volist>
+
+	<li><a href="../Machine/search_lic_new?id={$vo.id}">License生成查询</a></li>
+	<li><a href="../Machine/get_lic_new?id={$vo.id}">生成License</a></li>
+</ul>
